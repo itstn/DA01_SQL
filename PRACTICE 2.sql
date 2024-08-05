@@ -1,0 +1,31 @@
+--ex1
+SELECT DISTINCT CITY FROM STATION
+WHERE ID%2=0;
+--ex2
+SELECT COUNT (CITY) - COUNT (DISTINCT CITY) FROM STATION;
+--ex5 
+SELECT candidate_id FROM candidates
+WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
+GROUP BY candidate_id
+HAVING COUNT (skill) = 3
+--ex09
+SELECT *
+FROM Cinema
+WHERE description <> 'boring' AND id%2 <> 0
+ORDER BY rating DESC
+--ex10
+SELECT teacher_id,
+COUNT (DISTINCT subject_id) AS cnt
+FROM Teacher
+GROUP BY teacher_id;
+--ex11
+SELECT user_id,
+COUNT (follower_id) AS followers_count
+FROM Followers
+GROUP BY user_id
+ORDER BY user_id ASC
+--ex12
+SELECT class 
+FROM Courses
+GROUP BY class
+HAVING COUNT (student) >= 5
