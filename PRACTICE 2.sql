@@ -8,6 +8,11 @@ SELECT candidate_id FROM candidates
 WHERE skill IN ('Python', 'Tableau', 'PostgreSQL')
 GROUP BY candidate_id
 HAVING COUNT (skill) = 3
+--ex07
+SELECT card_name,
+MAX (issued_amount)- MIN (issued_amount) AS difference
+FROM monthly_cards_issued
+GROUP BY card_name;
 --ex09
 SELECT *
 FROM Cinema
