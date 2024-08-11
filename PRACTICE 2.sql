@@ -13,6 +13,14 @@ SELECT card_name,
 MAX (issued_amount)- MIN (issued_amount) AS difference
 FROM monthly_cards_issued
 GROUP BY card_name;
+--ex08
+SELECT manufacturer,
+COUNT (drug) AS drug_count,
+ABS(SUM(cogs - total_sales)) AS total_loss
+FROM pharmacy_sales
+WHERE total_sales < cogs
+GROUP BY manufacturer
+ORDER BY ABS(SUM(cogs - total_sales)) DESC
 --ex09
 SELECT *
 FROM Cinema
