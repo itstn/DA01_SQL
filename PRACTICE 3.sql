@@ -33,4 +33,17 @@ LIMIT 2
 SELECT tweet_id 
 FROM Tweets
 WHERE LENGTH (content) > 15
---ex7
+--ex8
+SELECT 
+COUNT (ID) AS number_employee
+FROM employees
+WHERE EXTRACT (MONTH FROM joining_date) BETWEEN 1 AND 7
+AND EXTRACT (YEAR FROM joining_date) = 2020
+--ex9
+select POSITION ('a' IN first_name)
+from worker
+WHERE first_name = 'Amitah'
+--ex10
+SELECT title, 
+SUBSTRING (title, length (winery)+2,4) AS year
+FROM winemag_p2
